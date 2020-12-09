@@ -1,0 +1,43 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/AnnFlismark/Craft_Academy/kitty_news_api/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/AnnFlismark/Craft_Academy/kitty_news_api/app/models/application_record.rb": [
+        0,
+        0,
+        0
+      ],
+      "/Users/AnnFlismark/Craft_Academy/kitty_news_api/app/jobs/application_job.rb": [
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0
+      ],
+      "/Users/AnnFlismark/Craft_Academy/kitty_news_api/app/controllers/application_controller.rb": [
+        0,
+        0
+      ],
+      "/Users/AnnFlismark/Craft_Academy/kitty_news_api/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/AnnFlismark/Craft_Academy/kitty_news_api/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1607538245
+  }
+}
