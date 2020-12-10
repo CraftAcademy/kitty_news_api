@@ -9,15 +9,15 @@ RSpec.describe 'GET/api/articles' do
     end
 
     it 'is expected to have valid title in first "article"' do
-      expect(JSON.parse(response.body)['articles'][0]['title']).to eq 'MyTitle'
+      expect(response_json['articles'][0]['title']).to eq 'MyTitle'
     end
 
     it 'is expected to have valid lead in second "article"' do
-      expect(JSON.parse(response.body)['articles'][1]['lead']).to eq 'MyLead'
+      expect(response_json['articles'][1]['lead']).to eq 'MyLead'
     end
 
-    it 'is expected to have valid body in third "article"' do
-      expect(JSON.parse(response.body)['articles'][2]['body']).to eq 'MyBody'
+    it 'is expected to have valid date in third "article"' do
+      expect(response_json['articles'][2]['created']).to eq '2020-12-10'
     end
 
     it 'expected to return all articles' do
