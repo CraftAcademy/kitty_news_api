@@ -10,11 +10,11 @@ RSpec.describe 'GET/api/atricles' do
     end
 
     it 'is expected to show a specific title for first article' do
-      expect(response_json['articles'][0]['title']).to eq 'MyTitle'
+      expect(response_json['article']['title']).to eq 'MyTitle'
     end
 
-    it 'expected to return one article' do
-      expect(response_json['articles'].count).to eq 1
+    it 'is expected to show a specific body for first article' do
+      expect(response_json['article']['body']).to eq 'MyBody'
     end
 
   end
