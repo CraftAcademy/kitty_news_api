@@ -11,6 +11,7 @@ gem 'rails', '~> 6.0.2'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 gem 'rack-cors', require: 'rack/cors'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'pry-rails'
