@@ -4,6 +4,7 @@ RSpec.describe Article, type: :model do
     it { is_expected.to have_db_column :lead }
     it { is_expected.to have_db_column :body }
   end
+  
   describe 'is expected to have validation' do
     it { is_expected.to validate_presence_of :title }
     it { is_expected.to validate_presence_of :lead }
