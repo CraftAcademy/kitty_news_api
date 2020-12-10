@@ -1,8 +1,8 @@
 RSpec.describe 'GET/api/atricles' do
-  let!(:articles) { 3.times { create(:article) } }
+  let!(:article) { create(:article) } 
   describe 'successfully get a specific article' do
     before do
-      get '/api/articles/1'
+      get "/api/articles/#{article.id}"
     end
 
     it 'expected to return a 200 response' do
