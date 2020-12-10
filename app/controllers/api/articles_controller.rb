@@ -3,4 +3,8 @@ class Api::ArticlesController < ApplicationController
     articles = Article.all
     render json: articles, each_serializer: ArticlesIndexSerializer
   end
+
+  def show
+  end
+  
 end
