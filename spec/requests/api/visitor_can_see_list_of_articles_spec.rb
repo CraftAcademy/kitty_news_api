@@ -7,6 +7,7 @@ RSpec.describe 'GET/api/articles' do
     it 'expected to return a 200 response' do
       expect(response).to have_http_status 200
     end
+
     it 'expected to return all articles' do
       expect(response_json['articles'].count).to eq 3
     end
