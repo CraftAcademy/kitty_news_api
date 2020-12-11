@@ -19,7 +19,7 @@ RSpec.describe 'GET/api/atricles' do
   
     describe 'unsuccessfully get a specific article' do
       before do
-        get "/api/articles/#{abc}"
+        get "/api/articles/abc"
       end
 
       it 'expected to return a 422 response' do

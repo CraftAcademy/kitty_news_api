@@ -5,10 +5,9 @@ class Api::ArticlesController < ApplicationController
   end
 
   def show
-    if article = Article.find(params[:id])
-      render json: article, serializer: ArticlesShowSerializer
-    else
-      render json: { message: 'Something went wrong...' }, status: 422
-    end
+    article = Article.find(params[:id])
+    render json: article, serializer: ArticlesShowSerializer
+  rescue ActiveRecord::RecordNotFound => e
+    render json: { message: 'Something went wrong...' }, status: 422
   end
 end
