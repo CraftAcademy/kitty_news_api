@@ -8,6 +8,6 @@ class Api::ArticlesController < ApplicationController
     article = Article.find(params[:id])
     render json: article, serializer: ArticlesShowSerializer
   rescue ActiveRecord::RecordNotFound => e
-    render json: { message: 'Something went wrong...' }, status: 422
+    render json: { message: 'Something went wrong, this article was not found' }, status: 404
   end
 end

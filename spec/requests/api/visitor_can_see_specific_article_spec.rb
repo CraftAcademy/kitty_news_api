@@ -16,18 +16,18 @@ RSpec.describe 'GET/api/atricles' do
     it 'is expected to show a specific body for first article' do
       expect(response_json['article']['body']).to eq 'MyBody'
     end
-  
+
     describe 'unsuccessfully get a specific article' do
       before do
-        get "/api/articles/abc"
+        get '/api/articles/abc'
       end
 
-      it 'expected to return a 422 response' do
-        expect(response).to have_http_status 422
+      it 'expected to return a 404 response' do
+        expect(response).to have_http_status 404
       end
 
       it 'is expected to respond with a error message' do
-        expect(JSON.parse(response.body)['message']).to eq 'Something went wrong...'
+        expect(response_json['message']).to eq 'Something went wrong, this article was not found'
       end
     end
   end
