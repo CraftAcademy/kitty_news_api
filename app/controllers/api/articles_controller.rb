@@ -5,7 +5,10 @@ class Api::ArticlesController < ApplicationController
   end
 
   def show
-    article = Article.find(params[:id])
-    render json: article, serializer: ArticlesShowSerializer
+    if article = Article.find(params[:id])
+      render json: article, serializer: ArticlesShowSerializer
+    else
+      render json: { message: 'Something went wrong...' }, status: 422
+    end
   end
 end
