@@ -17,7 +17,7 @@ RSpec.describe 'GET/api/articles' do
     end
 
     it 'is expected to have valid date in third "article"' do
-      expect(response_json['articles'][2]['created']).to eq Date.today
+      expect(response_json['articles'][2]['created']).to eq Date.today.strftime('%F')
     end
 
     it 'expected to return all articles' do
