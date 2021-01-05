@@ -12,7 +12,14 @@ class Api::ArticlesController < ApplicationController
   end
 
   def create
-    article = Article.create(params[:id])
+    article = Article.create(article_params)
     render json: { message: 'Your article was successfully created' }, status: 201
-  end
+     end
+
+private
+
+def article_params
+  params.require(:article).permit(:title, :lead, :body) 
+end
+
 end
