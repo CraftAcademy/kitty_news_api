@@ -1,10 +1,10 @@
 RSpec.describe 'GET/api/articles' do
-  let!(:category) { create(:category, name: 'global politics') }
+  let!(:category) { create(:category, label: 'global politics') }
   let!(:articles) { 2.times { create(:article, category: category) } }
 
   describe 'successfully get articles sorted in categories' do
     before do
-      get "/api/categories/#{category.name}"
+      get "/api/categories/#{category.label}"
     end
 
     it 'is expected to return a 200 response' do
@@ -15,12 +15,12 @@ RSpec.describe 'GET/api/articles' do
       expect(response_json['category']['articles'].count).to eq 2
     end
 
-    it 'it expected to return the name of the category' do
-      expect(response_json['category']['name']).to eq 'global politics'
+    it 'it expected to return the label of the category' do
+      expect(response_json['category']['label']).to eq 'global politics'
     end
 
     it 'is expected to show title of one of the articles' do
-      expect(response_json['category']['articles'][1]['name']).to eq 'MyTitle'
+      expect(response_json['category']['articles'][1]['title']).to eq 'MyTitle'
     end
   end
 end
