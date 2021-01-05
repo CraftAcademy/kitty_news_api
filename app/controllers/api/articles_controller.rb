@@ -10,4 +10,6 @@ class Api::ArticlesController < ApplicationController
   rescue ActiveRecord::RecordNotFound => e
     render json: { message: 'Something went wrong, this article was not found' }, status: 404
   end
+
+
 end
