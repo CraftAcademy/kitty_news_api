@@ -4,7 +4,7 @@ RSpec.describe Category, type: :model do
   end
 
   describe 'is expected to have validation' do
-    it { is_expected.to validates_presence_of :label }
+    it { is_expected.to validate_presence_of :label }
   end
 
   describe 'is expected to have many products' do
