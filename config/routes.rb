@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'api/categories'
  namespace :api do
    resources :articles, only: [:index, :show]
-   resources :categories, only: [:index]
+   resources :categories, only: [:show]
  end
   
 end
