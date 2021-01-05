@@ -13,6 +13,6 @@ class Api::ArticlesController < ApplicationController
 
   def create
     article = Article.create(params[:id])
-    render json: { message: 'Your article was successfully created'}, status: 201
+    render json: { message: 'Your article was successfully created' }, status: 201
   end
 end

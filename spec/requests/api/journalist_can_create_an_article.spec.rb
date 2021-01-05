@@ -16,7 +16,7 @@ RSpec.describe 'POST/api/articles', type: :request do
     end
 
     it 'is expected to return a success message' do
-      expect(response_json['Your article was successfully created']).to eq true
+      expect(response_json['message']).to eq 'Your article was successfully created'
     end
 
   end
