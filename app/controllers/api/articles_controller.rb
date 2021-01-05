@@ -11,5 +11,7 @@ class Api::ArticlesController < ApplicationController
     render json: { message: 'Something went wrong, this article was not found' }, status: 404
   end
 
-
+  def create
+    binding.pry
+  end
 end
