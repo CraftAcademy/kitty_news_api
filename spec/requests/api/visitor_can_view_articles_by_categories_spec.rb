@@ -1,4 +1,4 @@
-RSpec.describe 'GET/api/articles' do
+RSpec.describe 'GET/api/categories' do
   let!(:category) { create(:category, label: 'global_politics') }
   let!(:articles) { 2.times { create(:article, category: category) } }
 
