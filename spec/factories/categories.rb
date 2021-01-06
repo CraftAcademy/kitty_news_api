@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :category do
-    label { "MyLabel" }
+    label {'global_politics'}
   end
 end
