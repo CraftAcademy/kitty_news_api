@@ -13,13 +13,17 @@ class Api::ArticlesController < ApplicationController
 
   def create
     article = Article.create(article_params)
-    render json: { message: 'Your article was successfully created' }, status: 201
-     end
+    if article.persisted?
+      render json: { message: 'Your article was successfully created' }, status: 201
+    else
+      render json: { message: 'Something went wrong!' }, status: 422
+    end
+  end
 
-private
+  
+  private
 
-def article_params
-  params.require(:article).permit(:title, :lead, :body) 
-end
-
+  def article_params
+    params.require(:article).permit(:title, :lead, :body)
+  end
 end
