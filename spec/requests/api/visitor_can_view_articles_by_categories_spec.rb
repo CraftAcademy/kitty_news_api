@@ -11,8 +11,8 @@ RSpec.describe 'GET/api/categories' do
       expect(response).to have_http_status 200
     end
 
-    it 'is expected to return all categories' do
-      expect(response_json['category'].count).to eq 3
+    it 'is expected to return all articles in that category' do
+      expect(response_json['category']['articles'].count).to eq 2
     end
 
     it 'it expected to return the label of the category' do
@@ -22,6 +22,7 @@ RSpec.describe 'GET/api/categories' do
     it 'is expected to show title of ONE of the articles' do
       expect(response_json['category']['articles'][1]['title']).to eq 'MyTitle'
     end
+    
     describe 'unsuccessfully get a specific category' do
       before do
         get '/api/categories/abc'

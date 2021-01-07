@@ -1,4 +1,4 @@
 class CategoriesShowSerializer < ActiveModel::Serializer
   attributes :id, :label
-  has_many :articles, serializer: ArticlesShowSerializer
+  has_many :articles, serializer: ArticlesIndexSerializer
 end
