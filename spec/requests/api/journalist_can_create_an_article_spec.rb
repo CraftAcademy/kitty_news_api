@@ -1,4 +1,5 @@
 RSpec.describe 'POST/api/articles', type: :request do
+  let!(:category)  { create(:category, label: 'global_politics' ) } 
   describe 'successfully creates an article' do
     before do
       post '/api/articles',
@@ -6,8 +7,10 @@ RSpec.describe 'POST/api/articles', type: :request do
              article: {
                title: 'A title',
                lead: 'And a lead',
-               body: 'With a body'
-             }
+               body: 'With a body',
+               category_id: category.id 
+             },
+
            }
     end
     it 'is expected to return a 201' do
@@ -26,8 +29,8 @@ RSpec.describe 'POST/api/articles', type: :request do
              article: {
                title: '',
                lead: 'Lead',
-               body: 'Body'
-
+               body: 'Body',
+               category_id: category.id
              }
            }
     end
@@ -48,7 +51,8 @@ RSpec.describe 'POST/api/articles', type: :request do
              article: {
                title: 'Title',
                lead: '',
-               body: 'Body'
+               body: 'Body',
+               category_id: category.id
              }
            }
     end
