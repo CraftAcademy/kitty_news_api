@@ -4,4 +4,4 @@ class ArticlesIndexSerializer < ActiveModel::Serializer
   def created
     object.created_at.strftime('%F')
   end
-end
+end 
