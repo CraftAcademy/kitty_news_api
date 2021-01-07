@@ -10,4 +10,19 @@ class Api::ArticlesController < ApplicationController
   rescue ActiveRecord::RecordNotFound => e
     render json: { message: 'Something went wrong, this article was not found' }, status: 404
   end
+
+  def create
+    article = Article.create(article_params)
+    if article.persisted?
+      render json: { message: 'Your article was successfully created!' }, status: 201
+    else
+      render json: { message: article.errors.full_messages.to_sentence }, status: 422
+    end
+  end
+
+  private
+
+  def article_params
+    params.require(:article).permit(:title, :lead, :body)
+  end
 end
