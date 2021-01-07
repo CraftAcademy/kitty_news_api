@@ -3,5 +3,6 @@ FactoryBot.define do
     title { "MyTitle" }
     lead { "MyLead" }
     body { "MyBody" }
+    association :category
   end
 end
