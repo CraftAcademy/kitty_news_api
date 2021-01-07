@@ -14,6 +14,7 @@ class Api::ArticlesController < ApplicationController
   def create
     article = Article.create(article_params)
     if article.persisted?
+      binding.pry
       render json: { message: 'Your article was successfully created!' }, status: 201
     else
       render json: { message: article.errors.full_messages.to_sentence }, status: 422
