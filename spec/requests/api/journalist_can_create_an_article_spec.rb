@@ -10,7 +10,7 @@ RSpec.describe 'POST/api/articles', type: :request do
                title: 'A title',
                lead: 'And a lead',
                body: 'With a body',
-               category_id: category.id 
+               category_id: category.id
              },
 
            }
@@ -31,7 +31,7 @@ RSpec.describe 'POST/api/articles', type: :request do
              article: {
                title: '',
                lead: 'Lead',
-               body: 'Body',
+               body: 'Body',  
                category_id: category.id
              }
            }
