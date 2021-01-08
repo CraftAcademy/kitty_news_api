@@ -1,6 +1,6 @@
 RSpec.describe 'POST/api/articles', type: :request do
-  let!(:category)  { create(:category, label: 'global_politics' ) } 
-  let!(:category_2)  { create(:category, label: 'global_politics' ) } 
+  let!(:category) { create(:category, label: 'global_politics') }
+  let!(:category_2) { create(:category, label: 'global_politics') }
 
   describe 'successfully creates an article' do
     before do
@@ -11,7 +11,7 @@ RSpec.describe 'POST/api/articles', type: :request do
                lead: 'And a lead',
                body: 'With a body',
                category_id: category.id
-             },
+             }
            }
     end
     it 'is expected to return a 201' do
@@ -30,7 +30,7 @@ RSpec.describe 'POST/api/articles', type: :request do
              article: {
                title: '',
                lead: 'Lead',
-               body: 'Body',  
+               body: 'Body',
                category_id: category.id
              }
            }
@@ -74,7 +74,7 @@ RSpec.describe 'POST/api/articles', type: :request do
              article: {
                title: 'Title',
                lead: 'lead',
-               body: 'Body',
+               body: 'Body'
              }
            }
     end
@@ -84,7 +84,7 @@ RSpec.describe 'POST/api/articles', type: :request do
     end
 
     it 'is expected to return a error message' do
-      expect(response_json['message']).to eq "Category must exist"
+      expect(response_json['message']).to eq 'Category must exist'
     end
   end
 end
