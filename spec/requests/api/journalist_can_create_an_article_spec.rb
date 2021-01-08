@@ -12,7 +12,6 @@ RSpec.describe 'POST/api/articles', type: :request do
                body: 'With a body',
                category_id: category.id
              },
-
            }
     end
     it 'is expected to return a 201' do
