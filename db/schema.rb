@@ -21,7 +21,8 @@ ActiveRecord::Schema.define(version: 2021_01_08_090655) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "body"
-    t.bigint "category_id", null: false
+    t.integer "label"
+    t.bigint "category_id"
     t.index ["category_id"], name: "index_articles_on_category_id"
   end
 
