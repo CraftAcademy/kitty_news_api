@@ -4,7 +4,7 @@ RSpec.describe 'GET/api/categories' do
 
   describe 'successfully get articles sorted into categories' do
     before do
-      get "/api/categories/#{category.label}"
+      get "/api/categories/#{category.id}"
     end
 
     it 'is expected to return a 200 response' do
