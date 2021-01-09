@@ -8,6 +8,7 @@ FactoryBot.define do
     end
     factory :journalist do
       role { :journalist }
+      email { 'journalist@test.com' }
     end
   end
 end

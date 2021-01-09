@@ -4,5 +4,6 @@ FactoryBot.define do
     lead { "MyLead" }
     body { "MyBody" }
     association :category
+    association :author, factory: :journalist
   end
 end

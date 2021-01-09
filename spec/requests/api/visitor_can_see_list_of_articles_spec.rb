@@ -1,5 +1,6 @@
 RSpec.describe 'GET/api/articles' do
-  let!(:articles) { 3.times { create(:article) } }
+  let(:journalist) { create(:journalist, email: 'journalist2@email.com')}
+  let!(:articles) { 3.times { create(:article, author_id: journalist.id) } }
   describe 'successfully get list of articles' do
     before do
       get '/api/articles'

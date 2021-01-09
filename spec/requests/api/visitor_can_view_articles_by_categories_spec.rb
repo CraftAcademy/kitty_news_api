@@ -1,6 +1,8 @@
 RSpec.describe 'GET/api/categories' do
-  let!(:category) { create(:category, label: 'global_politics') }
-  let!(:articles) { 2.times { create(:article, category: category) } }
+  let(:category) { create(:category, label: 'global_politics') }
+  let(:journalist) { create(:journalist, email: 'journalist2@email.com')}
+  let!(:articles)  { create(:article, category: category) } 
+  let!(:articles2) { create(:article, category: category, author_id: journalist.id ) } 
 
   describe 'successfully get articles sorted into categories' do
     before do
