@@ -1,7 +1,7 @@
 RSpec.describe 'POST/api/articles', type: :request do
-  let(:registered_user) { create(:user, role: 'registered_user') }
+  let(:registered_user) { create(:registered_user) }
   let(:registered_user_headers) { registered_user.create_new_auth_token }
-  let(:journalist) { create(:user, role: 'journalist') }
+  let(:journalist) { create(:journalist) }
   let(:journalist_headers) { journalist.create_new_auth_token }
   let(:category) { create(:category, label: 'global_politics') }
 
