@@ -135,7 +135,7 @@ RSpec.describe 'POST/api/articles', type: :request do
       expect(response).to have_http_status 401
     end
     it 'is expected to return an error message' do
-      expect(response_json['errors']).to eq ['You need to sign in or sign up before continuing.']
+      expect(response_json).to have_key('errors').and have_value(['You need to sign in or sign up before continuing.'])
     end
   end
 end

@@ -5,7 +5,7 @@ RSpec.describe 'GET/api/atricles' do
       get "/api/articles/#{article.id}"
     end
 
-    it 'expected to return a 200 response' do
+    it 'is expected to return a 200 response' do
       expect(response).to have_http_status 200
     end
 
@@ -22,7 +22,7 @@ RSpec.describe 'GET/api/atricles' do
         get '/api/articles/abc'
       end
 
-      it 'expected to return a 404 response' do
+      it 'is expected to return a 404 response' do
         expect(response).to have_http_status 404
       end
 

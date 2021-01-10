@@ -17,7 +17,7 @@ RSpec.describe 'GET/api/categories' do
       expect(response_json['category']['articles'].count).to eq 2
     end
 
-    it 'it expected to return the label of the category' do
+    it 'is expected to return the label of the category' do
       expect(response_json['category']['label']).to eq 'global_politics'
     end
 
@@ -30,7 +30,7 @@ RSpec.describe 'GET/api/categories' do
         get '/api/categories/abc'
       end
 
-      it 'expected to return a 404 response' do
+      it 'is expected to return a 404 response' do
         expect(response).to have_http_status 404
       end
 
