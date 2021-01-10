@@ -1,6 +1,8 @@
 RSpec.describe 'GET/api/categories' do
-  let!(:category) { create(:category, label: 'global_politics') }
-  let!(:articles) { 2.times { create(:article, category: category) } }
+  let(:category) { create(:category, label: 'global_politics') }
+  let(:journalist) { create(:journalist, email: 'journalist2@email.com')}
+  let!(:articles)  { create(:article, category: category) } 
+  let!(:articles2) { create(:article, category: category, author_id: journalist.id ) } 
 
   describe 'successfully get articles sorted into categories' do
     before do
@@ -15,7 +17,7 @@ RSpec.describe 'GET/api/categories' do
       expect(response_json['category']['articles'].count).to eq 2
     end
 
-    it 'it expected to return the label of the category' do
+    it 'is expected to return the label of the category' do
       expect(response_json['category']['label']).to eq 'global_politics'
     end
 
@@ -28,7 +30,7 @@ RSpec.describe 'GET/api/categories' do
         get '/api/categories/abc'
       end
 
-      it 'expected to return a 404 response' do
+      it 'is expected to return a 404 response' do
         expect(response).to have_http_status 404
       end
 

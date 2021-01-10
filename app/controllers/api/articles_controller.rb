@@ -1,4 +1,7 @@
 class Api::ArticlesController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
+  before_action :is_user_journalist?, only: [:create]
+
   def index
     articles = Article.all
     render json: articles, each_serializer: ArticlesIndexSerializer
@@ -12,7 +15,7 @@ class Api::ArticlesController < ApplicationController
   end
 
   def create
-    article = Article.create(article_params)
+    article = current_user.articles.create(article_params)
     if article.persisted?
       render json: { message: 'Your article was successfully created!' }, status: 201
     else
@@ -24,5 +27,11 @@ class Api::ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :lead, :body, :category_id)
+  end
+
+  def is_user_journalist?
+    unless current_user.journalist?
+      render json: { message: 'You are not authorized to create an article.' }, status: 401
+    end
   end
 end

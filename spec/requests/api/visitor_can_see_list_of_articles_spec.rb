@@ -1,10 +1,11 @@
 RSpec.describe 'GET/api/articles' do
-  let!(:articles) { 3.times { create(:article) } }
+  let(:journalist) { create(:journalist, email: 'journalist2@email.com')}
+  let!(:articles) { 3.times { create(:article, author_id: journalist.id) } }
   describe 'successfully get list of articles' do
     before do
       get '/api/articles'
     end
-    it 'expected to return a 200 response' do
+    it 'is expected to return a 200 response' do
       expect(response).to have_http_status 200
     end
 
@@ -20,7 +21,7 @@ RSpec.describe 'GET/api/articles' do
       expect(response_json['articles'][2]['created']).to eq Date.today.strftime('%F')
     end
 
-    it 'expected to return all articles' do
+    it 'is expected to return all articles' do
       expect(response_json['articles'].count).to eq 3
     end
   end
