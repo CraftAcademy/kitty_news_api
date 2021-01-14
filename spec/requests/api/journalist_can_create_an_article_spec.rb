@@ -5,6 +5,15 @@ RSpec.describe 'POST/api/articles', type: :request do
   let(:journalist_headers) { journalist.create_new_auth_token }
   let(:category) { create(:category, label: 'global_politics') }
 
+  let(:image) do
+   {
+     type: 'application/jpg',
+     encoder: 'name=test_image.jpg:base64',
+     data: 'fdsfdsfdsfdsfdsfdsfds',
+     extension: 'jpg'
+   }
+  end
+
   describe 'successfully creates an article' do
     before do
       post '/api/articles',
@@ -14,7 +23,8 @@ RSpec.describe 'POST/api/articles', type: :request do
                lead: 'And a lead',
                body: 'With a body',
                category_id: category.id,
-               author_id: journalist.id
+               author_id: journalist.id,
+               image: image
              }
            },
            headers: journalist_headers
