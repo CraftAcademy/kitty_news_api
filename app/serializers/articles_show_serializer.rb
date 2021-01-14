@@ -5,7 +5,7 @@ class ArticlesShowSerializer < ActiveModel::Serializer
     object.created_at.strftime('%F')
   end
 
-  def image 
+  def image
     return nil unless object.image.attached?
     object.image_path
   end

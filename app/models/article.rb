@@ -5,6 +5,6 @@ class Article < ApplicationRecord
   has_one_attached :image
 
   def image_path
-    Rails.env.test? ? ActiveStorage::Blob.service.path_for(image.key) : image.service_url(expires_in: 1.hour, dispositon: "inline")
-  end  
+    Rails.env.test? ? ActiveStorage::Blob.service.path_for(image.key) : image.service_url(expires_in: 1.hour, dispositon: 'inline')
+  end
 end

@@ -1,5 +1,5 @@
 class Api::ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :show]
+  before_action :authenticate_user!, only: %i[create show]
   before_action :is_user_journalist?, only: [:create]
 
   def index
@@ -37,8 +37,6 @@ class Api::ArticlesController < ApplicationController
 
   def attach_image(article)
     params_image = params[:article][:image]
-      if params_image.present?
-        DecodeService.attach_image(params_image, article.image)
-      end
+    DecodeService.attach_image(params_image, article.image) if params_image.present?
   end
 end
