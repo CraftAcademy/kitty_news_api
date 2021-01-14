@@ -5,7 +5,6 @@ module DecodeService
     io = StringIO.new
     io.puts(decoded_data)
     io.rewind
-
     target.attach(io: io, filename: "#{image[:encoder]}.#{image[:extension]}")
   end
 
