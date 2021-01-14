@@ -11,10 +11,10 @@ module DecodeService
   private_methods
 
   def self.split_base64(string)
-    if string =~ /^data:(.*?);(,*?),(.*)$/
+    if string =~ /^data:(.*?);(.*?),(.*)$/
       uri = {}
       uri[:type] = Regexp.last_match(1)
-      uri[:endoder] = Regexp.last_match(2)
+      uri[:encoder] = Regexp.last_match(2)
       uri[:data] = Regexp.last_match(3)
       uri[:extension] = Regexp.last_match(1).split('/')[1]
       uri
