@@ -1,7 +1,12 @@
 class ArticlesIndexSerializer < ActiveModel::Serializer
-  attributes :id, :title, :lead, :created
+  attributes :id, :title, :lead, :created, :image
 
   def created
     object.created_at.strftime('%F')
   end
-end 
+
+  def image
+    return nil unless object.image.attached?
+    object.image_path
+  end
+end
