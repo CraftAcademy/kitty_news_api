@@ -1,7 +1,7 @@
 RSpec.describe "POST /api/subscriptions", type: :request do
   describe "Registered user can buy subscription" do
-    let(:registered_user) { create(:registered_user) }
-    let(:registered_user_headers) { registered_user.create_new_auth_token }
+    let!(:registered_user) { create(:registered_user) }
+    let!(:registered_user_headers) { registered_user.create_new_auth_token }
 
     before do
       post "/api/subscriptions",
@@ -12,7 +12,15 @@ RSpec.describe "POST /api/subscriptions", type: :request do
     end
 
     it "is expected to return a 200 response" do
-      binding.pry
+      expect(response).to have_http_status 200
+    end
+
+    it "is expected to return a success message" do
+      expect(response_json["message"]).to eq "Meow. Thanks for the yarn!"
+    end
+
+    it "is expected to turn a registered user into a subsciber" do
+      expect(registered_user.reload.subscriber).to eq true
     end
   end
 end
