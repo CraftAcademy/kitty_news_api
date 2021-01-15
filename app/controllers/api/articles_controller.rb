@@ -1,6 +1,7 @@
 class Api::ArticlesController < ApplicationController
   before_action :authenticate_user!, only: %i[create show]
   before_action :is_user_journalist?, only: [:create]
+  before_action :is_user_subscriber?, only: [:show]
 
   def index
     articles = Article.all
@@ -38,5 +39,10 @@ class Api::ArticlesController < ApplicationController
   def attach_image(article)
     params_image = params[:article][:image]
     DecodeService.attach_image(params_image, article.image) if params_image.present?
+  end
+  def is_user_subscriber?
+    unless current_user.subsriber?
+    render json: { message: 'You are not catscribed yet? You shall be' }, status: 401 unless current_user.subscriber?
+    end
   end
 end
