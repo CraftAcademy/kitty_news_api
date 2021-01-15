@@ -5,7 +5,7 @@ class Api::SubscriptionsController < ApplicationController
     payment_status = perform_payment
     
     if payment_status
-      current_user.update_attribute(:subscriber, true)
+      current_user.update_attribute(:role, :subscriber)
       render json: { message: "Meow. Thanks for the yarn!", paid: true }
     else
       render json: { message: "Hiss Hiss! Your payment info are a miss!" }, status: 422
@@ -22,7 +22,7 @@ class Api::SubscriptionsController < ApplicationController
     )
     charge = Stripe::Charge.create(
       customer: customer.id,
-      amount: 7500,
+      amount: 75,
       currency: "USD"
     )
     charge.paid

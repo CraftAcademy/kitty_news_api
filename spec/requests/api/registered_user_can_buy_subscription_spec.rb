@@ -20,7 +20,7 @@ RSpec.describe "POST /api/subscriptions", type: :request do
     end
 
     it "is expected to turn a registered user into a subsciber" do
-      expect(registered_user.reload.subscriber).to eq true
+      expect(registered_user.reload.role).to eq "subscriber"
     end
   end
 end

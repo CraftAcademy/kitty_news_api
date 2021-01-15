@@ -42,7 +42,7 @@ class Api::ArticlesController < ApplicationController
   end
   def is_user_subscriber?
     unless current_user.subscriber?
-    render json: { message: 'You are not catscribed yet? You shall be' }, status: 401 unless current_user.subscriber?
+    render json: { message: 'You are not catscribed yet? You shall be' }, status: 401
     end
   end
 end
