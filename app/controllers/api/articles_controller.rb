@@ -41,7 +41,7 @@ class Api::ArticlesController < ApplicationController
     DecodeService.attach_image(params_image, article.image) if params_image.present?
   end
   def is_user_subscriber?
-    unless current_user.subsriber?
+    unless current_user.subscriber?
     render json: { message: 'You are not catscribed yet? You shall be' }, status: 401 unless current_user.subscriber?
     end
   end
