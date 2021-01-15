@@ -22,6 +22,7 @@ RSpec.configure do |config|
   config.include Shoulda::Matchers::ActiveRecord, type: :model
   config.include ResponseJSON 
   config.before(:each) do
+    @stripe_test_helper = StripeMock.create_test_helper
     StripeMock.start
   end
   config.after(:each) do

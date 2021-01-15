@@ -12,7 +12,11 @@ RSpec.describe "POST /api/subscriptions", type: :request do
     end
 
     it "is expected to return a 200 response" do
-      binding.pry
+      expect(response).to have_http_status 200
+    end
+
+    it "is expected to return a success message" do
+      expect(response_json["message"]).to eq "Meow. Thanks for the yarn!"
     end
   end
 end
