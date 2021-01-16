@@ -38,20 +38,4 @@ RSpec.describe 'GET/api/atricles' do
       expect(response_json['message']).to eq 'Something went wrong, this article was not found'
     end
   end
-
-  describe "unsuccessfully get a specific article with invalid authentication" do
-    before do
-      get "/api/articles/#{article.id}",
-      headers: registered_user_headers
-    end
-
-    it "is expected to return a error status" do
-      expect(response).to have_http_status 401
-    end
-
-    it 'is expected to respond with a error message' do
-      expect(response_json['message']).to eq 'You are not catscribed yet? You shall be'
-    end
-  end
-
 end
