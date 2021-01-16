@@ -39,5 +39,4 @@ class Api::ArticlesController < ApplicationController
     params_image = params[:article][:image]
     DecodeService.attach_image(params_image, article.image) if params_image.present?
   end
-
 end
