@@ -14,6 +14,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'active_model_serializers'
 gem 'devise_token_auth'
 gem 'aws-sdk-s3'
+gem 'stripe-rails'
 
 group :development, :test do
   gem 'pry-rails'
@@ -22,6 +23,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'factory_bot_rails'
   gem 'coveralls',  require:  false
+  gem 'stripe-ruby-mock', require: 'stripe_mock'
 end
 
 group :development do

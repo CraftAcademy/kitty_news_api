@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :articles, only: [:index, :show, :create]
     resources :categories, only: [:show]
+    resources :subscriptions, only: [:create]
   end
 end

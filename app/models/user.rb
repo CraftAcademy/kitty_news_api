@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   after_initialize :set_default_role, if: :new_record?
 
-  enum role: %i[registered_user journalist]
+  enum role: %i[registered_user journalist subscriber]
 
   has_many :articles, foreign_key: 'author_id'
 
