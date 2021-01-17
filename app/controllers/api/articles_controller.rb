@@ -1,7 +1,7 @@
 class Api::ArticlesController < ApplicationController
   before_action :authenticate_user!, only: %i[create show]
   before_action :is_user_journalist?, only: [:create]
-  before_action :is_user_subscriber?, only: [:show]
+  before_action :is_user_authorized_article?, only: [:show]
 
   def index
     articles = Article.all
@@ -36,7 +36,7 @@ class Api::ArticlesController < ApplicationController
     end
   end
 
-  def is_user_subscriber?
+  def is_user_authorized_article?
     render json: { message: 'You are not catscribed yet? You shall be' }, status: 401 unless current_user.subscriber? || current_user.journalist?
   end
 
