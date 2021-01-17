@@ -4,7 +4,7 @@ class Api::ArticlesController < ApplicationController
   before_action :is_user_authorized_article?, only: [:show]
 
   def index
-    articles = Article.all
+    articles = Article.order('created_at DESC')
     render json: articles, each_serializer: ArticlesIndexSerializer
   end
 
