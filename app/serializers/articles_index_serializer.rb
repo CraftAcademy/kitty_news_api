@@ -12,6 +12,6 @@ class ArticlesIndexSerializer < ActiveModel::Serializer
   end
 
   def category
-    object.category.label
+    object.category.label.titleize
   end
 end
