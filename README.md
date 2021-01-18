@@ -35,7 +35,7 @@ Check the whole design sprint and user story history of the project in [this](ht
 
 ## Acknowledgements
 - [Craft Academy](https://www.craftacademy.se/) course material
-- [Craft Academy](https://www.craftacademy.se/) coaches: Thomas Ochman, Emma-Maria Thalen
+- [Craft Academy](https://www.craftacademy.se/) coaches: Thomas Ochman and Emma-Maria Thalen
 
 ## License
 MIT License
@@ -44,5 +44,5 @@ MIT License
 - [Sanne Lindholm](https://github.com/salindholm)
 - [Kyungin Na](https://github.com/KyunginNa)
 - [Viktor Karlsson](https://github.com/ViktorHek)
-- [Erik](https://github.com/Ehugo2000)
+- [Erik Hugoson](https://github.com/Ehugo2000)
 - [Paulina Sobczak](https://github.com/psnoya)
