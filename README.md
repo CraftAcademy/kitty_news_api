@@ -8,8 +8,8 @@ This is the API to our project Kitty News. Here we are authenticating users, sto
 - Display articles in a category
 
 ## The code
-Deployed App: (https://kitty-news.herokuapp.com/) </br>
-Github: (https://github.com/CraftAcademy/kitty_news_api)</br>
+[Deployed App(Heroku)](https://kitty-news.herokuapp.com/) </br>
+[Github](https://github.com/CraftAcademy/kitty_news_api)</br>
 The admin user interface, mobile application and User Interface can be found here:
   - [User Interface](https://github.com/CraftAcademy/kitty_news_client_user)
   - [Admin User Interface](https://github.com/CraftAcademy/kitty_news_client_admin)
@@ -35,7 +35,7 @@ Check the whole design sprint and user story history of the project in [this](ht
 
 ## Acknowledgements
 - [Craft Academy](https://www.craftacademy.se/) course material
-- [Craft Academy](https://www.craftacademy.se/) coaches: Thomas Ochman and Emma-Maria Thalen
+- [Craft Academy](https://www.craftacademy.se/) coaches: [Thomas Ochman](https://github.com/tochman) and [Emma-Maria Thalen](https://github.com/emtalen)
 
 ## License
 MIT License
