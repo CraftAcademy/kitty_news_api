@@ -2,8 +2,6 @@ RSpec.describe 'GET/api/atricles' do
   let(:article) { create(:article) }
   let(:subscriber) { create(:subscriber) }
   let(:subscriber_headers) { subscriber.create_new_auth_token }
-  let(:registered_user) { create(:registered_user) }
-  let(:registered_user_headers) { registered_user.create_new_auth_token }
 
   describe 'successfully get a specific article' do
     before do
