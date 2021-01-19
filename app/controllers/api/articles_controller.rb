@@ -11,8 +11,8 @@ class Api::ArticlesController < ApplicationController
   def show
     article = Article.find(params[:id])
     if current_user.registered_user?
-      if current_user.article_click > 5
-        render json: { message: 'You are not catscribed yet? You shall be' }, status: 401
+      if current_user.article_click >= 5
+        render json: { message: 'You are not catscribed yet? You shall be' }, status: 401 and return
       else
         current_user.update_attribute(:article_click, current_user.article_click + 1)
       end
