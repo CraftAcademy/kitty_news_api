@@ -18,7 +18,7 @@ RSpec.describe 'GET /api/articles/:id', type: :request do
         expect(response_json['article']['title']).to eq 'MyTitle'
       end
 
-      it 'expected to update articleClickOnUser to 1' do
+      it 'is expected to update articleClickOnUser to 1' do
         expect(registered_user.reload.article_click).to eq 1
       end
     end

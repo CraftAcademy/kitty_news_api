@@ -1,7 +1,7 @@
 class Api::ArticlesController < ApplicationController
   before_action :authenticate_user!, only: %i[create show]
   before_action :is_user_journalist?, only: [:create]
-  # before_action :is_user_authorized_article?, only: [:show]
+  before_action :is_user_authorized_article?, only: [:show]
 
   def index
     articles = Article.order('created_at DESC')
@@ -10,13 +10,7 @@ class Api::ArticlesController < ApplicationController
 
   def show
     article = Article.find(params[:id])
-    if current_user.registered_user?
-      if current_user.article_click >= 5
-        render json: { message: 'You are not catscribed yet? You shall be' }, status: 401 and return
-      else
-        current_user.update_attribute(:article_click, current_user.article_click + 1)
-      end
-    end
+    current_user.update_attribute(:article_click, current_user.article_click + 1) if current_user.registered_user?
     render json: article, serializer: ArticlesShowSerializer
   rescue ActiveRecord::RecordNotFound => e
     render json: { message: 'Something went wrong, this article was not found' }, status: 404
@@ -44,7 +38,9 @@ class Api::ArticlesController < ApplicationController
   end
 
   def is_user_authorized_article?
-    unless current_user.subscriber? || current_user.journalist?
+    unless current_user.subscriber? ||
+       current_user.journalist? || 
+       current_user.article_click < 5
       render json: { message: 'You are not catscribed yet? You shall be' }, status: 401
     end
   end

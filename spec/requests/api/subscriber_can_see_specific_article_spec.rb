@@ -20,6 +20,10 @@ RSpec.describe 'GET/api/atricles' do
     it 'is expected to show a specific body for first article' do
       expect(response_json['article']['body']).to eq 'MyBody'
     end
+
+    it 'is expected to not increes article_click count' do
+      expect(subscriber.reload.article_click).to eq 0
+    end
   end
 
   describe 'unsuccessfully get a specific article with incorrect route' do
@@ -39,14 +43,13 @@ RSpec.describe 'GET/api/atricles' do
 
   describe 'unsuccessfully get a specific article with invalid authentication' do
     before do
-      get "/api/articles/#{article.id}",
-          headers: registered_user_headers
+      get "/api/articles/#{article.id}"
     end
     it 'is expected to return a error status' do
       expect(response).to have_http_status 401
     end
     it 'is expected to respond with a error message' do
-      expect(response_json['message']).to eq 'You are not catscribed yet? You shall be'
+      expect(response_json['errors'][0]).to eq "You need to sign in or sign up before continuing."
     end
   end
 end
